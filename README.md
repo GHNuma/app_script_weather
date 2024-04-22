@@ -1,5 +1,5 @@
 # Weather App
-> ** ENG
+> ENG
 
 Welcome to the Weather App! This web application allows users to retrieve weather information for a specific city and store it in a Google Sheets spreadsheet.
 
