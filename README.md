@@ -9,12 +9,12 @@ Welcome to the Weather App! This web application allows users to retrieve weathe
 3. Click on the Submit button.
 4. Once the data is fetched, it will be displayed in a table below the form.
 
-## > [!NOTE]
+> [!NOTE]
 > Ensure that you have a stable internet connection to fetch weather data successfully.
 > The application uses the OpenWeatherMap API to fetch weather data. Make sure you have a valid API key.
 > Make sure the city name is spelled correctly to receive accurate weather information.
 
-Try application by yourself [Weather app](https://script.google.com/macros/s/AKfycbzgY3jP7lpxjFUGeQOucyp4ysvbMZ2LXJRz3WXi6JbmigUgsx5sHrg32_Oj496TSLUvhg/exec).
+*** Try application by yourself*** [Weather app](https://script.google.com/macros/s/AKfycbzgY3jP7lpxjFUGeQOucyp4ysvbMZ2LXJRz3WXi6JbmigUgsx5sHrg32_Oj496TSLUvhg/exec).
 
 ### Author: Omirzak Nurmukhamed
 
@@ -23,7 +23,7 @@ Try application by yourself [Weather app](https://script.google.com/macros/s/AKf
 
 Добро пожаловать в Weather App! Это веб-приложение позволяет пользователям получать информацию о погоде для определенного города и сохранять ее в электронной таблице Google Sheets.
 
-Usage
+## Инструкция 
 1. Откройте веб-приложение Weather App, используя предоставленный URL-адрес.
 2. Введите свое имя и город, для которого вы хотите получить информацию о погоде.
 3. Нажмите кнопку «submit».
@@ -34,6 +34,6 @@ Usage
 > Приложение использует API OpenWeatherMap для получения данных о погоде. Убедитесь, что у вас есть действительный ключ API.
 > Убедитесь, что название города написано правильно, чтобы получать точную информацию о погоде.
 
-Попробуйте приложение сами [Weather app](https://script.google.com/macros/s/AKfycbzgY3jP7lpxjFUGeQOucyp4ysvbMZ2LXJRz3WXi6JbmigUgsx5sHrg32_Oj496TSLUvhg/exec).
+***Попробуйте приложение сами*** [Weather app](https://script.google.com/macros/s/AKfycbzgY3jP7lpxjFUGeQOucyp4ysvbMZ2LXJRz3WXi6JbmigUgsx5sHrg32_Oj496TSLUvhg/exec).
 
-Автор: Омирзак Нурмухамед
+### Автор: Омирзак Нурмухамед
