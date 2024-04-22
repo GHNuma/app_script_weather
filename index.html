@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      .toast {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+      }
+
+      .show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;} 
+        to {bottom: 30px; opacity: 1;}
+      }
+
+      @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+      }
+
+      @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;} 
+        to {bottom: 0; opacity: 0;}
+      }
+
+      @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+      }
+      
+      table {
+        border-collapse: collapse;
+        width: 300px;
+        margin-left: 20px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 2s linear infinite;
+        display: none; /* Hidden by default */
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Weather App</h2>
+    <form id="weatherForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city"><br><br>
+      <input type="submit" value="Submit">
+      <div class="loader" id="loader"></div> <!-- Loading indicator -->
+    </form>
+    <div id="toast" class="toast"></div>
+
+    <table id="weatherTable">
+      <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+      </tr>
+    </table>
+
+    <script>
+      document.getElementById('weatherForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var name = document.getElementById('name').value;
+        var city = document.getElementById('city').value;
+
+        document.getElementById('loader').style.display = "inline-block";
+
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById('loader').style.display = "none";
+
+          document.getElementById('toast').innerHTML = response.message;
+          document.getElementById('toast').classList.add('show');
+          setTimeout(function(){
+            document.getElementById('toast').classList.remove('show');
+          }, 3000); 
+          
+          if (response.weatherData.cod == 200) {
+            displayWeatherInfo(response.weatherData);
+            document.getElementById('weatherForm').reset();
+          } else {
+            clearWeatherInfo();
+          }
+        }).withFailureHandler(function(error) {
+          document.getElementById('loader').style.display = "none";
+
+          document.getElementById('toast').innerHTML ='City name is incorrect';
+          document.getElementById('toast').classList.add('show');
+          setTimeout(function(){
+            document.getElementById('toast').classList.remove('show');
+          }, 3000); 
+        }).submitForm(name, city);
+      });
+
+      function displayWeatherInfo(weatherInfo) {
+        var table = document.getElementById("weatherTable");
+        table.innerHTML = ""; 
+
+        var data = [
+          { attribute: "Name", value: document.getElementById('name').value },
+          { attribute: "Temperature", value: weatherInfo.main.temp + "°C" },
+          { attribute: "Humidity", value: weatherInfo.main.humidity + "%" },
+          { attribute: "Wind Speed", value: weatherInfo.wind.speed + " m/s" },
+          { attribute: "Description", value: weatherInfo.weather[0].description }
+        ];
+
+        data.forEach(function(item) {
+          var row = table.insertRow();
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          cell1.innerHTML = item.attribute;
+          cell2.innerHTML = item.value;
+        });
+      }
+
+      function clearWeatherInfo() {
+        document.getElementById("weatherTable").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
