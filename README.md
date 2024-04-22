@@ -18,6 +18,7 @@ Welcome to the Weather App! This web application allows users to retrieve weathe
 
 ### Author: Omirzak Nurmukhamed
 
+
 > RUS
 
 Добро пожаловать в Weather App! Это веб-приложение позволяет пользователям получать информацию о погоде для определенного города и сохранять ее в электронной таблице Google Sheets.
