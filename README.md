@@ -11,9 +11,11 @@ Usage
 
 > [!NOTE]
 > Ensure that you have a stable internet connection to fetch weather data successfully.
+
 > The application uses the OpenWeatherMap API to fetch weather data. Make sure you have a valid API key.
+
 > Make sure the city name is spelled correctly to receive accurate weather information.
 
-Try application by yourself [Weather app](https://pages.github.com/](https://script.google.com/macros/s/AKfycbzgY3jP7lpxjFUGeQOucyp4ysvbMZ2LXJRz3WXi6JbmigUgsx5sHrg32_Oj496TSLUvhg/exec)
+Try application by yourself [Weather app](https://script.google.com/macros/s/AKfycbzgY3jP7lpxjFUGeQOucyp4ysvbMZ2LXJRz3WXi6JbmigUgsx5sHrg32_Oj496TSLUvhg/exec).
 
 Author: Omirzak Nurmukhamed
